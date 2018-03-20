@@ -3,6 +3,7 @@ OutFile "Leaphy-setup.exe"
 
 XPStyle on
 LoadLanguageFile "${NSISDIR}\Contrib\Language files\Dutch.nlf"
+Icon "leaphy.ico"
 
 
 ; Only show installation page, no install dir has to be chosen, as that is done in the mBlock installer
