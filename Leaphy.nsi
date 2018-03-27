@@ -60,6 +60,9 @@ Section "Leaphy install"
   File /r /x "unins000.*" "mBlock_win_V3.4.11-installed\*.*"
 
   ; Further customize the mBlock installation
+  SetOutPath "$INSTDIR"
+  File /r "files\mBlock.exe"
+  File /r "files\welcome.swf"
   SetOutPath "$INSTDIR\ext\libraries"
   File /r "files\LeaphyShield2"
 
