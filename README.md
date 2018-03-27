@@ -1,4 +1,3 @@
-
 The Leaphy installer
 ====================
 
@@ -10,23 +9,24 @@ Prerequisites
 -------------
 
   * Install NSIS: http://nsis.sourceforge.net/Download
+  * Unzip the `Block_win_V3.4.11-installed.zip` file into a subfolder called `mBlock_win_V3.4.11-installed`.
 
 
 Building the installer
 ----------------------
 
   * Right-click on the `Leaphy.nsi` file and select *Compile NSIS script*
-  * After a few seconds the `Leaphy-setup.exe` file is generated.
+  * Wait a while for the `Leaphy-setup.exe` file to be generated.
 
 
 Description of files
 --------------------
 
-  * `mBlock_win_V3.4.11.exe`
-       The mBlock installer downloaded from http://www.mblock.cc/software/mblock/mblock3/
-  * `mBlock_win.inf`
-       Some presets for the mBlock installer
-  * `Leaphyshield2.zip`
+  * `mBlock_win_V3.4.11-installed.zip`
+       A ZIP archive containing the contents of the mBlock program files folder after running
+       of the mBlock installer.
+       The mBlock installer is downloaded from http://www.mblock.cc/software/mblock/mblock3/
+  * `Leaphyshield2`
        The Leaphy extention that needs to be installed into mBlock.
   * `makeblock.sol`
        User preference file: contains the lang=nl_NL setting and other stuff

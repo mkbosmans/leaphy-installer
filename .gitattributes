@@ -1,1 +1,2 @@
 files/mBlock_win_V3.4.11.exe filter=lfs diff=lfs merge=lfs -text
+mBlock_*-installed.zip filter=lfs diff=lfs merge=lfs -text
