@@ -68,7 +68,7 @@ Section "Leaphy install"
 
   ; Install files in the Local Store
   SetOutPath "$LeaphyLocalStore\mBlock\libraries"
-  File /r "files\LeaphyShield2"
+  CopyFiles "$INSTDIR\ext\libraries\*" "$LeaphyLocalStore\mBlock\libraries"
   SetOutPath "$LeaphyLocalStore\#SharedObjects"
   File "files\makeblock.sol"
 
