@@ -1,22 +1,51 @@
-Name "Leaphy"
+;SetCompress off
+SetCompressor /SOLID lzma
+SetCompressorDictSize 80
+
+!define MULTIUSER_EXECUTIONLEVEL Highest
+!define MULTIUSER_INSTALLMODE_INSTDIR "Leaphy-mBlock"
+!include "MultiUser.nsh"
+!include "MUI2.nsh"
+
+Name "Leaphy Software"
 OutFile "Leaphy-setup.exe"
+InstallDirRegKey HKCU "Software\Leaphy-mBlock" ""
+RequestExecutionLevel user
 
-XPStyle on
-LoadLanguageFile "${NSISDIR}\Contrib\Language files\Dutch.nlf"
-Icon "leaphy.ico"
+;--------------------------------
+;Variables
 
+Var StartMenuFolder
 
 ; Only show installation page, no install dir has to be chosen, as that is done in the mBlock installer
 
-Page instfiles
+!define MUI_ICON "logo\leaphy.ico"
+!define MUI_UNICON "logo\leaphy.ico"
+!define MUI_HEADERIMAGE
+!define MUI_HEADERIMAGE_BITMAP "logo\leaphy-header.bmp"
+
+
+!insertmacro MUI_PAGE_DIRECTORY
+!insertmacro MUI_PAGE_INSTFILES
+
+!insertmacro MUI_UNPAGE_CONFIRM
+!insertmacro MUI_UNPAGE_INSTFILES
+
+!insertmacro MUI_LANGUAGE "Dutch"
 
 ;--------------------------------
+
+Function .onInit
+  !insertmacro MULTIUSER_INIT
+FunctionEnd
+
+Function un.onInit
+  !insertmacro MULTIUSER_UNINIT
+FunctionEnd
 
 ; The stuff to install
 Section "Leaphy install"
   SectionIn RO
-
-
 
   Var /GLOBAL LeaphyLocalStore
   StrCpy $LeaphyLocalStore "$APPDATA\com.makeblock.Scratch3.4.11\Local Store"
@@ -27,17 +56,8 @@ Section "Leaphy install"
   SetOutPath "$LeaphyLocalStore\#SharedObjects"
   File "files\makeblock.sol"
 
-
-
-  ; Unpack the files in a temporary directory
-  SetOutPath $TEMP
-  SetCompress off     ; The mBlock installer is already compressed
-  File "files\mBlock_win_V3.4.11.exe"
-  SetCompress auto
-  File "files\mBlock_win.inf"
-  ExecWait '"$TEMP\mBlock_win_V3.4.11.exe" /LOADINF="$TEMP\mBlock_win.inf"'
-
-
+  ; Store installation folder
+  WriteRegStr HKCU "Software\Leaphy-mBlock" "" $INSTDIR
 
 SectionEnd
 
