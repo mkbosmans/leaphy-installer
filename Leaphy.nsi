@@ -3,13 +3,13 @@ SetCompressor /SOLID lzma
 SetCompressorDictSize 80
 
 !define MULTIUSER_EXECUTIONLEVEL Highest
-!define MULTIUSER_INSTALLMODE_INSTDIR "Leaphy-mBlock"
+!define MULTIUSER_INSTALLMODE_INSTDIR "S4K-mBlock"
 !include "MultiUser.nsh"
 !include "MUI2.nsh"
 
-Name "Leaphy Software"
-OutFile "Leaphy-software-setup.exe"
-InstallDirRegKey HKCU "Software\Leaphy-mBlock" ""
+Name "Science4Kids Software"
+OutFile "S4K-software-setup.exe"
+InstallDirRegKey HKCU "Software\S4K-mBlock" ""
 RequestExecutionLevel user
 
 ;--------------------------------
@@ -27,9 +27,9 @@ Var StartMenuFolder
 
 !insertmacro MUI_PAGE_DIRECTORY
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT "HKCU"
-!define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\Leaphy-mBlock"
+!define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\S4K-mBlock"
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "Start Menu Folder"
-!define MUI_STARTMENUPAGE_DEFAULTFOLDER "Leaphy Software"
+!define MUI_STARTMENUPAGE_DEFAULTFOLDER "S4K Software"
 !insertmacro MUI_PAGE_STARTMENU Application $StartMenuFolder
 !insertmacro MUI_PAGE_INSTFILES
 
@@ -73,12 +73,12 @@ Section "Leaphy install"
   File "files\makeblock.sol"
 
   ; Store installation folder
-  WriteRegStr HKCU "Software\Leaphy-mBlock" "" $INSTDIR
+  WriteRegStr HKCU "Software\S4K-mBlock" "" $INSTDIR
 
   ; Create start menu entries
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
   CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
-  CreateShortcut "$SMPROGRAMS\$StartMenuFolder\Leaphy.lnk" "$INSTDIR\mBlock.exe"
+  CreateShortcut "$SMPROGRAMS\$StartMenuFolder\S4K Software.lnk" "$INSTDIR\mBlock.exe"
   CreateShortcut "$SMPROGRAMS\$StartMenuFolder\Uninstall.lnk" "$INSTDIR\Uninstall.exe"
   !insertmacro MUI_STARTMENU_WRITE_END
 
@@ -91,7 +91,7 @@ SectionEnd
 Section "Uninstall"
 
   !insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuFolder
-  Delete "$SMPROGRAMS\$StartMenuFolder\Leaphy.lnk"
+  Delete "$SMPROGRAMS\$StartMenuFolder\S4K Software.lnk"
   Delete "$SMPROGRAMS\$StartMenuFolder\Uninstall.lnk"
   RMDir "$SMPROGRAMS\$StartMenuFolder"
 
@@ -114,7 +114,7 @@ Section "Uninstall"
 
   Delete "$INSTDIR\Uninstall.exe"
   RMDir "$INSTDIR"
-  DeleteRegKey /ifempty HKCU "Software\Leaphy-mBlock"
+  DeleteRegKey /ifempty HKCU "Software\S4K-mBlock"
 
 SectionEnd
 

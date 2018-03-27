@@ -1,15 +1,15 @@
-{   "extensionName": "Leaphy Robot",
+{   "extensionName": "S4K Robot",
     "extensionPort": 0,
     "sort": -1,
     "firmware": "1.0.0",
     "javascriptURL": "js/Leaphyshield2.js",
     "blockSpecs": [
-        ["h", "Leaphy Robot", "runArduino",
-            {"src":"Leaphyshield2",
-            "inc":"#include \"Leaphyshield2.h\"\n",
-            "def":"",
-            "setup":"",
-            "loop":""}],
+    ["h","S4K Robot", "runArduino",
+        {"src":"Leaphyshield2",
+        "inc":"#include \"Leaphyshield2.h\"\n",
+        "def":"",
+        "setup":"",
+        "loop":""}],
 
         ["-"],
 
