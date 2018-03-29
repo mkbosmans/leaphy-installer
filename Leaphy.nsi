@@ -8,7 +8,7 @@ SetCompressorDictSize 80
 !include "MUI2.nsh"
 
 Name "Leaphy Software"
-OutFile "Leaphy-setup.exe"
+OutFile "Leaphy-software-setup.exe"
 InstallDirRegKey HKCU "Software\Leaphy-mBlock" ""
 RequestExecutionLevel user
 
